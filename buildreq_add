@@ -1,0 +1,8 @@
+# This file contains additional build requirements that did not get
+# picked up automatically. One name per line, no whitespace.
+bison
+flex
+glibc-bin
+libnl-dev
+rdma-core-dev
+valgrind
