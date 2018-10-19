@@ -1,34 +1,10 @@
 Configure miss: gcov support
 Configure miss: time measurement support
 Configure miss: valgrind support
-Configure miss: infiniband/mlx5_hw.h
-Configure miss: attribute IBV_EXP_CQ_TIMESTAMP
-Configure miss: attribute IBV_EXP_VALUES_CLOCK_INFO
-Configure miss: attribute IBV_EXP_DEVICE_RX_CSUM_L4_PKT
-Configure miss: attribute IBV_EXP_DEVICE_RX_CSUM_TCP_UDP_PKT
-Configure miss: attribute IBV_EXP_FLOW_SPEC_ACTION_TAG
 Configure miss: attribute IBV_WC_WITH_VLAN
 Configure miss: attribute IBV_ACCESS_ALLOCATE_MR
 Configure miss: attribute IBV_FLOW_SPEC_IB
-Configure miss: attribute IBV_EXP_CQ_MODERATION
-Configure miss: attribute IBV_EXP_WR_NOP
-Configure miss: attribute IBV_EXP_ACCESS_ALLOCATE_MR
-Configure miss: attribute IBV_EXP_QP_INIT_ATTR_ASSOCIATED_QPN
-Configure miss: attribute IBV_EXP_FLOW_SPEC_IB
-Configure miss: attribute IBV_EXP_SEND_IP_CSUM
-Configure miss: attribute MLX5_ETH_WQE_L3_CSUM
-Configure miss: whether IBV_EXP_DEVICE_ATTR_MAX_DM_SIZE is declared
-Configure miss: whether IBV_EXP_QP_RATE_LIMIT is declared
-Configure miss: whether IBV_EXP_QP_SUPPORT_BURST is declared
-Configure miss: whether IBV_EXP_DEVICE_ATTR_VLAN_OFFLOADS is declared
-Configure miss: whether IBV_EXP_DEVICE_ATTR_MAX_CTX_RES_DOMAIN is declared
-Configure miss: whether IBV_EXP_CQ_RX_UDP_PACKET is declared
-Configure miss: whether MLX5_CQE_L3_HDR_TYPE_MASK is declared
-Configure miss: whether MLX5_CQE_L4_OK is declared
-Configure miss: whether MLX5_CQE_L4_HDR_TYPE_UDP is declared
-Configure miss: multi packet RQ support
-Configure miss: rdma_lib_reset
-Configure miss: ibv_exp_get_device_list
 Configure miss: socketxtreme API support
+Configure miss: tcp tx window availability support
 Configure miss: libnl-1
 Configure miss: 'struct timespec' for recvmmsg() const

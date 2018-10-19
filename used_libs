@@ -3,6 +3,7 @@ libc.so.6
 libdl.so.2
 libgcc_s.so.1
 libibverbs.so.1
+libmlx5.so.1
 libnl-3.so.200
 libnl-route-3.so.200
 libpthread.so.0
