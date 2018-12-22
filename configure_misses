@@ -7,4 +7,5 @@ Configure miss: attribute IBV_FLOW_SPEC_IB
 Configure miss: socketxtreme API support
 Configure miss: tcp tx window availability support
 Configure miss: libnl-1
+Configure miss: SOF_TIMESTAMPING_SOFTWARE support
 Configure miss: 'struct timespec' for recvmmsg() const

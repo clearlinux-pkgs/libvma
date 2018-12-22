@@ -81,7 +81,7 @@ libvma.so.8:_Z24get_cq_mgr_from_cq_eventP16ibv_comp_channel
 libvma.so.8:_Z24get_interface_oper_statePKcPci
 libvma.so.8:_Z24priv_ibv_find_pkey_indexP11ibv_contexthtPt
 libvma.so.8:_Z24setsockopt_ip_opt_to_stri
-libvma.so.8:_Z25check_bond_roce_lag_existPciPKcS1_
+libvma.so.8:_Z25check_bond_roce_lag_existPciPKc
 libvma.so.8:_Z25check_device_name_ib_namePKcS0_
 libvma.so.8:_Z25check_netvsc_device_existPKc
 libvma.so.8:_Z25get_address_port_rule_strPcS_P17address_port_rule
@@ -348,6 +348,9 @@ libvma.so.8:_ZN11wakeup_pipeC2Ev
 libvma.so.8:_ZN11wakeup_pipeD0Ev
 libvma.so.8:_ZN11wakeup_pipeD1Ev
 libvma.so.8:_ZN11wakeup_pipeD2Ev
+libvma.so.8:_ZN12data_updaterD0Ev
+libvma.so.8:_ZN12data_updaterD1Ev
+libvma.so.8:_ZN12data_updaterD2Ev
 libvma.so.8:_ZN12igmp_handler12handle_queryEh
 libvma.so.8:_ZN12igmp_handler13handle_reportEv
 libvma.so.8:_ZN12igmp_handler14tx_igmp_reportEv
@@ -409,7 +412,6 @@ libvma.so.8:_ZN12sockinfo_tcp16statistics_printE13vlog_levels_t
 libvma.so.8:_ZN12sockinfo_tcp16tcp_tx_pbuf_freeEPvP4pbuf
 libvma.so.8:_ZN12sockinfo_tcp17ack_recvd_lwip_cbEPvP7tcp_pcbt
 libvma.so.8:_ZN12sockinfo_tcp17ip_output_syn_ackEP4pbufPvih
-libvma.so.8:_ZN12sockinfo_tcp17set_dst_entry_ttlEv
 libvma.so.8:_ZN12sockinfo_tcp17tcp_tx_pbuf_allocEPv
 libvma.so.8:_ZN12sockinfo_tcp17try_un_offloadingEv
 libvma.so.8:_ZN12sockinfo_tcp18get_next_desc_peekEP14mem_buf_desc_tRi
@@ -417,6 +419,7 @@ libvma.so.8:_ZN12sockinfo_tcp18getsockopt_offloadEiiPvPj
 libvma.so.8:_ZN12sockinfo_tcp18tcp_state_observerEPv9tcp_state
 libvma.so.8:_ZN12sockinfo_tcp19prepare_dst_to_sendEb
 libvma.so.8:_ZN12sockinfo_tcp19queue_rx_ctl_packetEP7tcp_pcbP14mem_buf_desc_t
+libvma.so.8:_ZN12sockinfo_tcp19update_header_fieldEP12data_updater
 libvma.so.8:_ZN12sockinfo_tcp19wait_for_conn_readyEv
 libvma.so.8:_ZN12sockinfo_tcp20get_syn_received_pcbEjtjt
 libvma.so.8:_ZN12sockinfo_tcp20handle_socket_lingerEv
@@ -477,10 +480,10 @@ libvma.so.8:_ZN12sockinfo_udp16handle_msg_truncEmmiPi
 libvma.so.8:_ZN12sockinfo_udp16prepare_to_closeEb
 libvma.so.8:_ZN12sockinfo_udp16statistics_printE13vlog_levels_t
 libvma.so.8:_ZN12sockinfo_udp17handle_ip_pktinfoEP10cmsg_state
-libvma.so.8:_ZN12sockinfo_udp17set_dst_entry_ttlEv
 libvma.so.8:_ZN12sockinfo_udp18get_next_desc_peekEP14mem_buf_desc_tRi
 libvma.so.8:_ZN12sockinfo_udp18on_sockname_changeEP8sockaddrj
 libvma.so.8:_ZN12sockinfo_udp19handle_pending_mreqEv
+libvma.so.8:_ZN12sockinfo_udp19update_header_fieldEP12data_updater
 libvma.so.8:_ZN12sockinfo_udp20mc_change_membershipEPK15mc_pending_pram
 libvma.so.8:_ZN12sockinfo_udp20set_ring_attr_helperEP21ring_alloc_logic_attrP25vma_ring_alloc_logic_attr
 libvma.so.8:_ZN12sockinfo_udp21get_socket_timestampsEv
@@ -662,6 +665,8 @@ libvma.so.8:_ZN14net_device_val19verify_enable_ipoibEPKc
 libvma.so.8:_ZN14net_device_val20update_active_slavesEv
 libvma.so.8:_ZN14net_device_val20update_netvsc_slavesEii
 libvma.so.8:_ZN14net_device_val23ring_drain_and_proccessEv
+libvma.so.8:_ZN14net_device_val24get_priority_by_tc_classEj
+libvma.so.8:_ZN14net_device_val24get_ring_key_redirectionEP21ring_alloc_logic_attr
 libvma.so.8:_ZN14net_device_val24get_up_and_active_slavesEPbm
 libvma.so.8:_ZN14net_device_val24ring_adapt_cq_moderationEv
 libvma.so.8:_ZN14net_device_val26register_to_ibverbs_eventsEP21event_handler_ibverbs
@@ -703,6 +708,7 @@ libvma.so.8:_ZN14rule_table_mgrC1Ev
 libvma.so.8:_ZN14rule_table_mgrC2Ev
 libvma.so.8:_ZN14time_converter27get_single_converter_statusEP11ibv_context
 libvma.so.8:_ZN14time_converter28get_devices_converter_statusEPP10ibv_devicei
+libvma.so.8:_ZN14time_converter9clean_objEv
 libvma.so.8:_ZN15epoll_wait_call10is_timeoutERK7timeval
 libvma.so.8:_ZN15epoll_wait_call13set_efd_readyEii
 libvma.so.8:_ZN15epoll_wait_call13set_rfd_readyEi
@@ -843,6 +849,15 @@ libvma.so.8:_ZN17stats_data_reader17register_to_timerEv
 libvma.so.8:_ZN17stats_data_reader20handle_timer_expiredEPv
 libvma.so.8:_ZN17stats_data_readerC1Ev
 libvma.so.8:_ZN17stats_data_readerC2Ev
+libvma.so.8:_ZN18header_pcp_updater12update_fieldER9dst_entry
+libvma.so.8:_ZN18header_pcp_updaterC1Eh
+libvma.so.8:_ZN18header_pcp_updaterC2Eh
+libvma.so.8:_ZN18header_tos_updater12update_fieldER9dst_entry
+libvma.so.8:_ZN18header_tos_updaterC1Eh
+libvma.so.8:_ZN18header_tos_updaterC2Eh
+libvma.so.8:_ZN18header_ttl_updater12update_fieldER9dst_entry
+libvma.so.8:_ZN18header_ttl_updaterC1Ehb
+libvma.so.8:_ZN18header_ttl_updaterC2Ehb
 libvma.so.8:_ZN18neigh_ib_broadcast13get_peer_infoEP9neigh_val
 libvma.so.8:_ZN18neigh_ib_broadcast18build_mc_neigh_valEv
 libvma.so.8:_ZN18neigh_ib_broadcast4sendER15neigh_send_info
@@ -852,6 +867,7 @@ libvma.so.8:_ZN18neigh_ib_broadcastC2E9neigh_key
 libvma.so.8:_ZN18net_device_val_eth11create_ringEP21ring_alloc_logic_attr
 libvma.so.8:_ZN18net_device_val_eth17create_L2_addressEPKc
 libvma.so.8:_ZN18net_device_val_eth17create_br_addressEPKc
+libvma.so.8:_ZN18net_device_val_eth21parse_prio_egress_mapEv
 libvma.so.8:_ZN18net_device_val_eth6to_strB5cxx11Ev
 libvma.so.8:_ZN18net_device_val_eth9configureEv
 libvma.so.8:_ZN18netlink_neigh_info4fillEP10rtnl_neigh
@@ -902,6 +918,7 @@ libvma.so.8:_ZN21event_handler_manager11thread_loopEv
 libvma.so.8:_ZN21event_handler_manager11update_epfdEiii
 libvma.so.8:_ZN21event_handler_manager12start_threadEv
 libvma.so.8:_ZN21event_handler_manager14reg_action_strE19event_action_type_e
+libvma.so.8:_ZN21event_handler_manager16statistics_printEi13vlog_levels_t
 libvma.so.8:_ZN21event_handler_manager18free_evh_resourcesEv
 libvma.so.8:_ZN21event_handler_manager18wakeup_timer_eventEP13timer_handlerPv
 libvma.so.8:_ZN21event_handler_manager19post_new_reg_actionER12reg_action_t
@@ -912,6 +929,7 @@ libvma.so.8:_ZN21event_handler_manager22register_command_eventEiP7command
 libvma.so.8:_ZN21event_handler_manager22register_ibverbs_eventEiP21event_handler_ibverbsPvS2_
 libvma.so.8:_ZN21event_handler_manager22register_rdma_cm_eventEiPvS0_P21event_handler_rdma_cm
 libvma.so.8:_ZN21event_handler_manager22unregister_timer_eventEP13timer_handlerPv
+libvma.so.8:_ZN21event_handler_manager23query_for_ibverbs_eventEi
 libvma.so.8:_ZN21event_handler_manager24unregister_command_eventEi
 libvma.so.8:_ZN21event_handler_manager24unregister_ibverbs_eventEiP21event_handler_ibverbs
 libvma.so.8:_ZN21event_handler_manager24unregister_rdma_cm_eventEiPv
@@ -968,9 +986,6 @@ libvma.so.8:_ZN21time_converter_ib_ctx22fix_hw_clock_deviationEv
 libvma.so.8:_ZN21time_converter_ib_ctx30convert_hw_time_to_system_timeEmP8timespec
 libvma.so.8:_ZN21time_converter_ib_ctxC1EP11ibv_context20ts_conversion_mode_tm
 libvma.so.8:_ZN21time_converter_ib_ctxC2EP11ibv_context20ts_conversion_mode_tm
-libvma.so.8:_ZN21time_converter_ib_ctxD0Ev
-libvma.so.8:_ZN21time_converter_ib_ctxD1Ev
-libvma.so.8:_ZN21time_converter_ib_ctxD2Ev
 libvma.so.8:_ZN21vlogger_timer_handler20handle_timer_expiredEPv
 libvma.so.8:_ZN21vlogger_timer_handlerC1Ev
 libvma.so.8:_ZN21vlogger_timer_handlerC2Ev
@@ -1069,7 +1084,9 @@ libvma.so.8:_ZN6cq_mgrC2EP11ring_simpleP14ib_ctx_handleriP16ibv_comp_channelbb
 libvma.so.8:_ZN6cq_mgrD0Ev
 libvma.so.8:_ZN6cq_mgrD1Ev
 libvma.so.8:_ZN6cq_mgrD2Ev
+libvma.so.8:_ZN6header10set_ip_tosEh
 libvma.so.8:_ZN6header10set_ip_ttlEh
+libvma.so.8:_ZN6header12set_vlan_pcpEh
 libvma.so.8:_ZN6header19configure_ip_headerEhjjhht
 libvma.so.8:_ZN6header19configure_tcp_portsEtt
 libvma.so.8:_ZN6header20configure_udp_headerEtt
@@ -1292,6 +1309,7 @@ libvma.so.8:_ZN9dst_entry19configure_ip_headerEP6headert
 libvma.so.8:_ZN9dst_entry19return_buffers_poolEv
 libvma.so.8:_ZN9dst_entry21conf_hdrs_and_snd_wqeEv
 libvma.so.8:_ZN9dst_entry23alloc_transport_dep_resEv
+libvma.so.8:_ZN9dst_entry24get_priority_by_tc_classEj
 libvma.so.8:_ZN9dst_entry24set_so_bindtodevice_addrEj
 libvma.so.8:_ZN9dst_entry26conf_l2_hdr_and_snd_wqe_ibEv
 libvma.so.8:_ZN9dst_entry27conf_l2_hdr_and_snd_wqe_ethEv
@@ -1512,10 +1530,6 @@ libvma.so.8:_ZThn176_N8sockinfoD0Ev
 libvma.so.8:_ZThn176_N8sockinfoD1Ev
 libvma.so.8:_ZThn176_N9neigh_ethD0Ev
 libvma.so.8:_ZThn176_N9neigh_ethD1Ev
-libvma.so.8:_ZThn1816_N17net_device_val_ibD0Ev
-libvma.so.8:_ZThn1816_N17net_device_val_ibD1Ev
-libvma.so.8:_ZThn1824_N17net_device_val_ibD0Ev
-libvma.so.8:_ZThn1824_N17net_device_val_ibD1Ev
 libvma.so.8:_ZThn184_N11neigh_entry20handle_timer_expiredEPv
 libvma.so.8:_ZThn184_N11neigh_entryD0Ev
 libvma.so.8:_ZThn184_N11neigh_entryD1Ev
@@ -1524,6 +1538,10 @@ libvma.so.8:_ZThn184_N8neigh_ibD0Ev
 libvma.so.8:_ZThn184_N8neigh_ibD1Ev
 libvma.so.8:_ZThn184_N9neigh_ethD0Ev
 libvma.so.8:_ZThn184_N9neigh_ethD1Ev
+libvma.so.8:_ZThn1872_N17net_device_val_ibD0Ev
+libvma.so.8:_ZThn1872_N17net_device_val_ibD1Ev
+libvma.so.8:_ZThn1880_N17net_device_val_ibD0Ev
+libvma.so.8:_ZThn1880_N17net_device_val_ibD1Ev
 libvma.so.8:_ZThn2184_N12sockinfo_tcp20handle_timer_expiredEPv
 libvma.so.8:_ZThn2184_N12sockinfo_tcpD0Ev
 libvma.so.8:_ZThn2184_N12sockinfo_tcpD1Ev
@@ -1563,6 +1581,7 @@ libvma.so.8:_ZThn80_N12igmp_handlerD0Ev
 libvma.so.8:_ZThn80_N12igmp_handlerD1Ev
 libvma.so.8:_ZThn8_N12igmp_handlerD0Ev
 libvma.so.8:_ZThn8_N12igmp_handlerD1Ev
+libvma.so.8:_ZThn8_N14time_converter9clean_objEv
 libvma.so.8:_ZThn8_N15neigh_table_mgrD0Ev
 libvma.so.8:_ZThn8_N15neigh_table_mgrD1Ev
 libvma.so.8:_ZThn8_N20net_device_table_mgr20handle_timer_expiredEPv
