@@ -4,7 +4,7 @@
 #
 Name     : libvma
 Version  : 8.8.0
-Release  : 4
+Release  : 5
 URL      : https://github.com/Mellanox/libvma/archive/8.8.0.tar.gz
 Source0  : https://github.com/Mellanox/libvma/archive/8.8.0.tar.gz
 Summary  : A library for boosting TCP and UDP traffic (over RDMA hardware)
@@ -85,7 +85,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1545508122
+export SOURCE_DATE_EPOCH=1546020944
 %autogen --disable-static
 make  %{?_smp_mflags}
 
@@ -97,7 +97,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1545508122
+export SOURCE_DATE_EPOCH=1546020944
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libvma
 cp COPYING %{buildroot}/usr/share/package-licenses/libvma/COPYING
