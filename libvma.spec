@@ -4,7 +4,7 @@
 #
 Name     : libvma
 Version  : 8.8.1
-Release  : 6
+Release  : 7
 URL      : https://github.com/Mellanox/libvma/archive/8.8.1.tar.gz
 Source0  : https://github.com/Mellanox/libvma/archive/8.8.1.tar.gz
 Summary  : A library for boosting TCP and UDP traffic (over RDMA hardware)
