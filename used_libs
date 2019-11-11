@@ -8,5 +8,4 @@ libnl-3.so.200
 libnl-route-3.so.200
 libpthread.so.0
 librdmacm.so.1
-librt.so.1
 libstdc++.so.6

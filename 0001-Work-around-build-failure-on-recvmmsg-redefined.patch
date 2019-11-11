@@ -1,0 +1,42 @@
+From 0f232fd6d73a69a03c7e79e27e07544de3d41e8d Mon Sep 17 00:00:00 2001
+From: Thiago Macieira <thiago.macieira@intel.com>
+Date: Mon, 11 Nov 2019 11:05:10 -0800
+Subject: [PATCH] Work around build failure on recvmmsg redefined
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+sock/sock-redirect.cpp:1495:5: error: conflicting declaration of C function ‘int recvmmsg(int, mmsghdr*, unsigned int, int, const timespec*)’
+ 1495 | int recvmmsg(int __fd, struct mmsghdr *__mmsghdr, unsigned int __vlen, int __flags, const struct timespec *__timeout)
+      |     ^~~~~~~~
+In file included from /usr/include/netinet/in.h:23,
+                 from sock/sock-redirect.h:63,
+                 from sock/sock-redirect.cpp:34:
+/usr/include/sys/socket.h:199:12: note: previous declaration ‘int recvmmsg(int, mmsghdr*, unsigned int, int, timespec*)’
+  199 | extern int recvmmsg (int __fd, struct mmsghdr *__vmessages,
+      |            ^~~~~~~~
+
+https://github.com/Mellanox/libvma/issues/863
+---
+ src/vma/sock/sock-redirect.cpp | 4 ----
+ 1 file changed, 4 deletions(-)
+
+diff --git a/src/vma/sock/sock-redirect.cpp b/src/vma/sock/sock-redirect.cpp
+index 237c527..3fe92f1 100644
+--- a/src/vma/sock/sock-redirect.cpp
++++ b/src/vma/sock/sock-redirect.cpp
+@@ -1491,11 +1491,7 @@ struct mmsghdr {
+    This function is a cancellation point and therefore not marked with
+    __THROW.  */
+ extern "C"
+-#ifdef RECVMMSG_WITH_CONST_TIMESPEC
+-int recvmmsg(int __fd, struct mmsghdr *__mmsghdr, unsigned int __vlen, int __flags, const struct timespec *__timeout)
+-#else
+ int recvmmsg(int __fd, struct mmsghdr *__mmsghdr, unsigned int __vlen, int __flags, struct timespec *__timeout)
+-#endif
+ {
+         int num_of_msg=0;
+         struct timespec start_time = TIMESPEC_INITIALIZER, current_time = TIMESPEC_INITIALIZER, delta_time = TIMESPEC_INITIALIZER;
+-- 
+2.24.0
+
