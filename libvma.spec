@@ -4,12 +4,12 @@
 #
 Name     : libvma
 Version  : 8.9.5
-Release  : 8
+Release  : 9
 URL      : https://github.com/Mellanox/libvma/archive/8.9.5/libvma-8.9.5.tar.gz
 Source0  : https://github.com/Mellanox/libvma/archive/8.9.5/libvma-8.9.5.tar.gz
 Summary  : A library for boosting TCP and UDP traffic (over RDMA hardware)
 Group    : Development/Tools
-License  : BSD-2-Clause GPL-2.0
+License  : BSD-2-Clause GPL-2.0 MIT
 Requires: libvma-bin = %{version}-%{release}
 Requires: libvma-lib = %{version}-%{release}
 Requires: libvma-license = %{version}-%{release}
@@ -89,11 +89,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1573499256
+export SOURCE_DATE_EPOCH=1604898977
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
-export FCFLAGS="$CFLAGS -fno-lto "
-export FFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$FFLAGS -fno-lto "
+export FFLAGS="$FFLAGS -fno-lto "
 export CXXFLAGS="$CXXFLAGS -fno-lto "
 %autogen --disable-static
 make  %{?_smp_mflags}
@@ -103,14 +103,15 @@ export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-make VERBOSE=1 V=1 %{?_smp_mflags} check
+make %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1573499256
+export SOURCE_DATE_EPOCH=1604898977
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libvma
 cp %{_builddir}/libvma-8.9.5/COPYING %{buildroot}/usr/share/package-licenses/libvma/58d2b9d325c8b15fdd743be2040c275350091bf4
 cp %{_builddir}/libvma-8.9.5/LICENSE %{buildroot}/usr/share/package-licenses/libvma/00ce6a8dfee21965deebb42fe9a54bed81866afa
+cp %{_builddir}/libvma-8.9.5/debian/copyright %{buildroot}/usr/share/package-licenses/libvma/85b82e615999f671a0bd1f7926bfe7b69b295220
 %make_install
 
 %files
@@ -139,3 +140,4 @@ cp %{_builddir}/libvma-8.9.5/LICENSE %{buildroot}/usr/share/package-licenses/lib
 %defattr(0644,root,root,0755)
 /usr/share/package-licenses/libvma/00ce6a8dfee21965deebb42fe9a54bed81866afa
 /usr/share/package-licenses/libvma/58d2b9d325c8b15fdd743be2040c275350091bf4
+/usr/share/package-licenses/libvma/85b82e615999f671a0bd1f7926bfe7b69b295220
