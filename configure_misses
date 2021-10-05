@@ -1,9 +1,13 @@
-Configure miss: gcov support
-Configure miss: time measurement support
-Configure miss: valgrind support
-Configure miss: attribute IBV_WC_WITH_VLAN
 Configure miss: attribute IBV_ACCESS_ALLOCATE_MR
 Configure miss: attribute IBV_FLOW_SPEC_IB
-Configure miss: tcp tx window availability support
-Configure miss: tso support
+Configure miss: attribute IBV_WC_WITH_VLAN
+Configure miss: dpcp support
+Configure miss: g++ option to enable C++11 features
+Configure miss: gcc options needed to detect all undeclared functions
+Configure miss: gcov support
 Configure miss: libnl-1
+Configure miss: library containing yywrap
+Configure miss: tcp tx window availability support
+Configure miss: time measurement support
+Configure miss: tso support
+Configure miss: valgrind support
